@@ -1,0 +1,71 @@
+.addUser{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(17, 25, 40 , 0.781);
+    border-radius: 12px;
+    form{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        input{
+            padding:15px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        button{
+            padding: 15px;
+            background-color: #1f8ef1;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            color:white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    .user{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button{
+            padding: 10px;
+            background-color: #1f8ef1;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            color:white;
+            cursor: pointer;
+        }
+        .details{
+            display: flex;
+            overflow-y: hidden;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+          
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@media screen and (max-width:1200px) {
+    .container{
+        .details{
+            display: none;
+        }
+    }
+
+}
+@media screen and (max-width:970px) {
+
+    .chat{
+        display: none;
+        .top{
+            .icons{
+                img{
+                    display: none;
+                    &:first-child{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .bottom{
+            .icons{
+                img{
+                    display: none;
+                }
+                label{
+                    img{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media screen and (max-width:700px) {
+   
+   
+    .addUser{
+        form{
+            flex-direction: column;
+            input{
+                width: 60%;
+            }
+        }
+
+        .user{
+            .details{
+                flex-direction: column;
+
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .logIn{
+        .item{
+            h2{
+                font-size: 16px;
+            }
+
+            form{
+                gap: 10px;
+                width: 80%;
+            }
+            input{
+                padding: 10px;
+            }
+            label{
+                width: 80%;
+                font-size: 13px;
+
+               img {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+            
+            .forwardLink{
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+    }
+
+    .list{
+        flex-direction: column;
+        .searchBar{
+            width: 80%;
+        }
+    }
+
+}

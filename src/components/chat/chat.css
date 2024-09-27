@@ -1,0 +1,169 @@
+.chat{
+    flex: 2;
+    border-right:  1px solid #dddddd35;
+    border-left: 1px solid #dddddd35;
+    display: flex;
+    flex-direction: column;
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        border-bottom: 1px solid #dddddd35;
+        .user{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .texts{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                span{
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+
+                p{
+                    color: lightgray;
+                    font-weight: 300;
+                    font-size: 15px;
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .icons{
+            display: flex;
+            gap: 12px;
+            img{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .center{
+        flex: 1;
+        padding: 20px;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: scroll;
+        .message {
+            max-width: 70%;
+            display: flex;
+            gap: 20px;
+            p{
+                background-color: rgba(17 , 25 , 40 , .3);
+                border-radius: 12px;
+                padding: 10px;
+                cursor: pointer;
+            }
+            .texts{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                span{
+                    font-size: 13px;
+                }
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                    height: 250px;
+                    border-radius: 12px;
+                }
+            }
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            &.owner{
+                align-self: flex-end;
+
+                .texts{
+                    p{
+                        background-color: #5183fe
+                    }
+                }
+            }
+
+          
+        }
+    }
+
+    .bottom{
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #dddddd35;
+        gap: 10px;
+        .icons{
+            display: flex;
+            gap: 10px;
+            img{
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+        }
+
+        input{
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            background-color: rgba(17 , 25 , 40 , .5);
+            color: white;
+            font-size: 16px;
+            &:disabled{
+                cursor: not-allowed;
+            }
+        }
+
+        .emoji{
+            position: relative;
+            .picker{
+                position: absolute;
+                bottom: 50px;
+                left: 0;
+            }
+            img{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+
+        .sendButton{
+            background-color: #5183fe;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+
+            &:disabled{
+                background-color: #5182fe92;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

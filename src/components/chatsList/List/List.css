@@ -1,0 +1,94 @@
+
+    .list{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    .searchBar{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: rgba(17, 25, 40, .5);
+        padding: 10px;
+        flex: 1;
+        
+        img{
+            width: 20px;
+            height: 20px;
+        }
+
+        input{
+            background-color: transparent;
+            flex: 1;
+            border: none;
+            outline: none;
+            color: white;
+        }
+    }
+
+    .add{
+        width: 36px;
+        height: 36px;
+        background-color: rgba(17, 25, 40, .5);
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    max-height: 100%t;
+    overflow-y: scroll;
+    
+ .item{
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid  #dddddd35;
+    &:hover{
+        color: rgb(90, 120, 239);
+       }
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .texts{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        span{
+            font-weight: 500;
+        }
+        p{
+            font-size: 14px;
+        }
+    }}
+}
+ /* Designing for scroll-bar */
+ ::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: gainsboro;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
