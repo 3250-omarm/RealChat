@@ -11,13 +11,19 @@ const List = () => {
   const [chats, setChats] = useState([]);
   const [search, setSearch] = useState("");
   const { currentUser } = useUserStore();
-  const { changeChat, selectChat, BeOpen } = useChatStore();
+  const { changeChat, BeOpen } = useChatStore();
 
   useEffect(() => {
     const unsub = onSnapshot(
       doc(db, "userChats", currentUser.id),
       async (res) => {
-        const items = res.data().chats;
+        const data = res.data();
+        // Check if data or chats is undefined
+        if (!data || !data.chats) {
+          setChats([]); // Set an empty array if no chats exist
+          return;
+        }
+        const items = data.chats;
         const promises = items.map(async (item) => {
           const userDocRef = doc(db, "users", item.recieverId);
           const userDocSnap = await getDoc(userDocRef);
@@ -49,7 +55,6 @@ const List = () => {
         chats: userChats,
       });
       changeChat(chat.chatId, chat.user);
-      selectChat(true);
     } catch (err) {
       console.log(err);
     }
@@ -80,33 +85,31 @@ const List = () => {
       <div className="items">
         {filteredChats.map((chat) => {
           return (
-            <>
-              <div
-                className="item"
-                key={chat.chatId}
-                onClick={() => handleSelect(chat)}
-                style={{
-                  backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
-                }}
-              >
-                <img
-                  src={
-                    chat.user.blocked.includes(currentUser.id)
-                      ? "../../../dep/avatar.png"
-                      : chat.user.avatar
-                  }
-                  alt=""
-                />
-                <div className="texts">
-                  <span>
-                    {chat.user.blocked.includes(currentUser.id)
-                      ? "User"
-                      : chat.user.userName}
-                  </span>
-                  <p>{chat.lastMessage}</p>
-                </div>
+            <div
+              className="item"
+              key={chat.chatId}
+              onClick={() => handleSelect(chat)}
+              style={{
+                backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
+              }}
+            >
+              <img
+                src={
+                  chat.user.blocked.includes(currentUser.id)
+                    ? "../../../dep/avatar.png"
+                    : chat.user.avatar
+                }
+                alt=""
+              />
+              <div className="texts">
+                <span>
+                  {chat.user.blocked.includes(currentUser.id)
+                    ? "User"
+                    : chat.user.userName}
+                </span>
+                <p>{chat.lastMessage}</p>
               </div>
-            </>
+            </div>
           );
         })}
 

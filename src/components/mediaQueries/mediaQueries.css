@@ -93,5 +93,35 @@
             width: 80%;
         }
     }
+    .userInfo{
+        .icons{
+            img{
+                display: none;
 
+                &:last-child{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .chat {
+        .bottom{
+            position: relative;
+            input{
+                width: 50%;
+            }
+            .emoji{
+                display: none;
+                
+            }
+            .icons  {
+                label {
+                    img{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -60,6 +60,8 @@
         flex-direction: column;
         gap: 10px;
         overflow-y: scroll;
+        overflow-x: hidden;
+        position: relative;
         .message {
             max-width: 70%;
             display: flex;
@@ -79,9 +81,23 @@
                 }
                 img{
                     width: 100%;
-                    object-fit: cover;
-                    height: 250px;
+                    object-fit:cover;
+                    height:250px;
                     border-radius: 12px;
+                    cursor: pointer;
+
+                }
+
+                .OpenedImage{
+                    position: absolute;
+                    margin: auto;
+                    width: 80%;
+                    height: 80%;
+                    top: 50px;
+                    left: 50px;
+                    right: 50px;
+                    bottom: 50px;
+                    object-fit:contain;
                 }
             }
             img{

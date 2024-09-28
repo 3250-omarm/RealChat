@@ -6,14 +6,14 @@ import { auth } from "../../../Lib/Firebase";
 import { useChatStore } from "../../../Lib/chatStore";
 const UserInfo = () => {
   const { currentUser } = useUserStore();
-  const {BeOpen} = useChatStore()
+  const { BeOpen } = useChatStore();
   const handleLogOut = () => {
     signOut(auth);
   };
 
-  const openChatList =()=>{
-    BeOpen()
-  }
+  const openChatList = () => {
+    BeOpen();
+  };
   return (
     <div className="userInfo">
       <div className="user">

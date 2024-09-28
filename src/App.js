@@ -19,7 +19,7 @@ function App() {
       fetchUserInfo(user?.uid);
       console.log(user);
     });
-    return () => unSub;
+    return () => unSub();
   }, [fetchUserInfo]);
 
   if (isLoading) {

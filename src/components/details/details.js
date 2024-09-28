@@ -25,6 +25,9 @@ const Details = () => {
       console.log(err);
     }
   };
+
+  const handleDelete =()=>{
+  }
   return (
     <div className="details">
       <div className="user">
@@ -180,6 +183,9 @@ const Details = () => {
             </div>
           </div>
         </div>
+        <button style={{backgroundColor:'slateblue'}} onClick={handleDelete}>
+          Clear all chats
+        </button>
         <button onClick={handleBlock}>
           {isCurrentUserBlocked
             ? "You are Blocked"
