@@ -4,6 +4,7 @@
     border-left: 1px solid #dddddd35;
     display: flex;
     flex-direction: column;
+    animation: OpenPage 0.3s;
     .top{
         display: flex;
         align-items: center;
@@ -98,6 +99,7 @@
                     right: 50px;
                     bottom: 50px;
                     object-fit:contain;
+                    transition: all .3s ease-out;
                 }
             }
             img{
@@ -181,5 +183,17 @@
                 cursor: not-allowed;
             }
         }
+    }
+}
+
+
+@keyframes OpenPage {
+     0%{
+        transform:translateX(0) ;
+    }
+
+    100%{
+        transform:translateX(-100%) ;
+
     }
 }

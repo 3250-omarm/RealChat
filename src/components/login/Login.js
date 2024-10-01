@@ -60,7 +60,7 @@ const Login = () => {
         await setDoc(doc(db, "userChats", res.user.uid), {
           chats: [],
         });
-        toast.success("Account Created Successfully !");
+        toast.success("Account Created Successfully ,Lets SignIn !");
         setHaveAccount(true);
       } else {
         toast.error("Please Upload Your Avatar");

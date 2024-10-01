@@ -90,7 +90,7 @@
     .list{
         flex-direction: column;
         .searchBar{
-            width: 80%;
+            width: 70%;
         }
     }
     .userInfo{
@@ -102,6 +102,14 @@
                     display: block;
                 }
             }
+        }
+    }
+
+    .list{
+        flex-direction: row;
+        .searchBar{
+            width: 200px;
+            
         }
     }
 
@@ -121,6 +129,19 @@
                         display: none;
                     }
                 }
+            }
+        }
+    }
+
+    .addUser{
+        form{
+            flex-direction: row;
+            input{
+                width: 50%;
+            }
+
+            button{
+                padding: 10px;
             }
         }
     }

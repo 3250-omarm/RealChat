@@ -13,6 +13,7 @@
     left: 0;
     background-color: rgba(17, 25, 40 , 0.781);
     border-radius: 12px;
+    animation: OPen 0.3s;
     form{
         display: flex;
         align-items: center;
@@ -67,5 +68,14 @@
 
           
         }
+    }
+}
+
+@keyframes OPen {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(100%);
     }
 }

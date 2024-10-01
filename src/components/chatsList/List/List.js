@@ -83,11 +83,11 @@ const List = () => {
         />
       </div>
       <div className="items">
-        {filteredChats.map((chat) => {
+        {filteredChats.map((chat , index) => {
           return (
             <div
               className="item"
-              key={chat.chatId}
+              key={index}
               onClick={() => handleSelect(chat)}
               style={{
                 backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
