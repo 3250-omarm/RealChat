@@ -77,7 +77,7 @@ const Chat = () => {
     if (img.file) {
       imgUrl = await upload(img.file);
     }
-    if (inputMessage === " ") {
+    if (!inputMessage.trim()) {
       return;
     } else {
       try {
