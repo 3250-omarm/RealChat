@@ -39,7 +39,7 @@ const List = () => {
     };
   }, [currentUser.id]);
 
-  const handleSelect = async (chat) => {
+   const handleSelect = async (chat) => {
     const userChats = chats.map((item) => {
       const { user, ...rest } = item;
       return rest;

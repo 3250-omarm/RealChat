@@ -27,6 +27,7 @@ const Details = () => {
   };
 
   const handleDelete =()=>{
+    
   }
   return (
     <div className="details">

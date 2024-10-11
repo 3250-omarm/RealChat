@@ -4,6 +4,7 @@ import {
   arrayUnion,
   collection,
   doc,
+  getDoc,
   getDocs,
   query,
   serverTimestamp,
@@ -16,11 +17,13 @@ import { useUserStore } from "../../../Lib/userStore";
 
 const AddUser = () => {
   const [user, setUser] = useState(null);
+  const [exist, setExist] = useState(false);
   const { currentUser } = useUserStore();
   const handleSearch = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const userName = formData.get("userName");
+    setExist(false);
     try {
       const userRef = collection(db, "users");
       const q = query(userRef, where("userName", "==", userName));
@@ -37,6 +40,30 @@ const AddUser = () => {
     const chatRef = collection(db, "chats");
     const userChatsRef = collection(db, "userChats");
     try {
+      // Check if the chat already exists for the current user
+      const userChatDoc = await getDoc(doc(userChatsRef, user.id));
+      const currentUserChatDoc = await getDoc(
+        doc(userChatsRef, currentUser.id)
+      );
+
+      if (userChatDoc.exists() && currentUserChatDoc.exists()) {
+        const userChats = userChatDoc.data().chats || [];
+        const currentUserChats = currentUserChatDoc.data().chats || [];
+
+        // Check if there's already a chat between these two users
+        const chatExists = userChats.some(
+          (chat) => chat.recieverId === currentUser.id
+        );
+        const reverseChatExists = currentUserChats.some(
+          (chat) => chat.recieverId === user.id
+        );
+
+        if (chatExists || reverseChatExists) {
+          setExist(true);
+          return; // Exit the function if the chat already exists
+        }
+      }
+
       const newChatRef = doc(chatRef);
       await setDoc(newChatRef, {
         createdAt: serverTimestamp(),
@@ -76,6 +103,12 @@ const AddUser = () => {
             <span>{user.userName}</span>
           </div>
           <button onClick={handleAdd}>Add user</button>
+          {exist && (
+            <div style={{ color: "green", marginLeft: "20px" }}>
+              {" "}
+              already exists
+            </div>
+          )}
         </div>
       )}
     </div>
